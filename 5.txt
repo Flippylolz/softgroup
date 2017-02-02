@@ -1,0 +1,22 @@
+CREATE TABLE `posts` (
+`id` INT NOT NULL,
+`title` VARCHAR(255) NOT NULL,
+`body` TEXT NOT NULL,
+PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `users` (
+`id` INT NOT NULL,
+`name` VARCHAR(255) NOT NULL,
+`email` VARCHAR(255) NOT NULL,
+`birthday` DATE NOT NULL,
+PRIMARY KEY (`id`)
+);
+
+SELECT*
+FROM users
+WHERE birthday <= DATE_SUB(CURDATE(), INTERVAL 18 YEAR)
+
+SELECT*
+FROM users as u
+LEFT JOIN posts AS p ON u.id = p.user_id
