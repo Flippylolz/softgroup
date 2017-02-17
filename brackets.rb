@@ -1,13 +1,13 @@
 class String
   def valid?
-    string = gsub(/[^\(\)\[\]\{\}\<\>]/, '')
-    return true if string.empty?
-    return false if string.size.odd?
+    brackets = gsub(/[^\(\)\[\]\{\}\<\>]/, '')
+    return true if brackets.empty?
+    return false if brackets.size.odd?
     loop do
-      s = string.gsub('()', '').gsub('[]', '').gsub('{}', '').gsub('<>', '')
+      s = brackets.gsub('()', '').gsub('[]', '').gsub('{}', '').gsub('<>', '')
       return true if s.empty?
-      return false if s == string
-      string = s
+      return false if s == brackets
+      brackets = s
     end
   end
 end
