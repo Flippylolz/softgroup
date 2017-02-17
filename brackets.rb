@@ -1,6 +1,6 @@
 class String
   def valid?
-    string = self.gsub(/[^\(\)\[\]\{\}\<\>]/, '')
+    string = gsub(/[^\(\)\[\]\{\}\<\>]/, '')
     return true if string.empty?
     return false if string.size.odd?
     loop do
